@@ -82,12 +82,30 @@ class BinarySearchTree
 
     #return a list of the data sorted by number
     def sort
-        sorted = []
         
     end
 
     #load a .txt file into the tree
-    def load
+    def load(file_path)
+        loaded_file = read(file_path)
+        loaded_file = convert(loaded_file)
+        loaded_file.each do |line|
+            self.insert(line[0], line[1])
+        end
+        loaded_file.count
+    end
+
+    def convert(loaded_file)
+        loaded_file.each do |line|
+            line[0] = line[0].to_i
+            line[1] = line[1].chomp.lstrip
+        end
+    end
+
+    def read(file_path)
+        File.readlines(file_path).map do |line|
+            line.split(",")
+        end
     end
 
     #determine the the number of child nodes at a given level

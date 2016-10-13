@@ -163,4 +163,15 @@ class BianarySearchTreeTest < Minitest::Test
         assert_equal 16, result
     end
 
+    def test_load_txt_file
+        # skip
+        bst = BinarySearchTree.new
+        bst.load('movies.txt')
+
+        assert_equal 71, bst.base.rating
+        assert_equal 2, bst.depth_of?(11)
+        assert_equal 100, bst.max
+        assert_equal 0, bst.min
+    end
+
 end
