@@ -94,7 +94,7 @@ class BinarySearchTree
 
     def read(file_path)
         File.readlines(file_path).map do |line|
-            line.split(",")
+            line.split(",", 2)
         end
     end
 
