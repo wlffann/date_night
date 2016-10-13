@@ -10,7 +10,6 @@ class BinarySearchTree
         @base_level = 0
     end
 
-    #insert passed in data to tree
     def insert(rating, name)
         if base
             if rating < base.rating
@@ -24,12 +23,9 @@ class BinarySearchTree
             @base = Node.new(rating, name)
             base_level
         end
-        # binding.pry
     end
 
-    #check to see if data passed in is already in tree
     def include?(rating)
-        # binding.pry
         if base 
             if rating > base.rating
                 if base.right
@@ -59,7 +55,6 @@ class BinarySearchTree
         end
     end
 
-    #find the data in the array and calculate its depth in the tree
     def depth_of?(rating)
         if rating > base.rating
             base.right.depth_of?(rating)
@@ -70,22 +65,17 @@ class BinarySearchTree
         end
     end
 
-    #return the largest number in the tree
     def max
         @base.max
     end
 
-    #return the smallest number in the tree
     def min
         @base.min
     end
 
-    #return a list of the data sorted by number
     def sort
-        
     end
 
-    #load a .txt file into the tree
     def load(file_path)
         loaded_file = read(file_path)
         loaded_file = convert(loaded_file)
